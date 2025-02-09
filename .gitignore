@@ -1,0 +1,5 @@
+# Excluir todos los .exe, .a y .o que son
+# producto de la compilación.
+*.exe
+*.a
+*.o
