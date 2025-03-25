@@ -39,6 +39,10 @@ namespace Ini_Format
                     Add_Section("");
                }
 
+               Ini(Ini&& that) = default;
+
+               Ini& operator=(Ini&& that) = default;
+
                Section::Iterator Line_Iterator_End() const { return _sections.back().End(); }
 
                INI_FORMAT_API
@@ -142,7 +146,12 @@ namespace Ini_Format
                // Agrega una sección al final.
                //
                void Add_Section(Section&& section)
-               { _sections.emplace_back(section); }
+               {
+                    if (section.Name().empty())
+                         _sections.front() = std::move(section);
+                    else
+                         _sections.emplace_back(section);
+               }
 
                //
                // Agrega una sección en la posición especificada por index, relativa a las

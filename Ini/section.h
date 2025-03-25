@@ -30,6 +30,12 @@ namespace Ini_Format
 
                Section() = default;
 
+               Section(Section&& that) = default;
+               Section(Section& that) = default;
+
+               Section& operator=(Section&&) = default;
+               Section& operator=(Section&) = default;
+
                INI_FORMAT_API
                Section(std::string_view name);
 
