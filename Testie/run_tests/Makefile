@@ -2,7 +2,7 @@ all: run_tests.exe run_tests__unit_tests.dll
 
 CCOPTS=-I..\include
 
-include ..\..\..\Makefile.inc
+include ..\..\Makefile.inc
 
 run_tests.exe: main.o
 	Clang++ -o $@ $^

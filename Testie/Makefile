@@ -2,8 +2,6 @@ all: run_tests.exe build_unit_tests
 
 CLEAN=run_tests\*.exp run_tests\*.lib unit_tests\*.exp unit_tests\*.lib 
 
-include ..\..\Makefile.inc
-
 build_unit_tests:
 	cd unit_tests && gnumake
 	move unit_tests\*.dll .
